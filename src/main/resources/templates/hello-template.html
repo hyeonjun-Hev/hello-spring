@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text="'hello ' + ${name}">hello! empty</p>
+<!--
+ ${name} 은 Modal에서 key값을 통해 값을 가져오는 것임
+-->
+<!--
+hello! empty라는 텍스트는 template로 작동될때는 thymleaf로 작동하고, url에 Absolute path경로로 접근할시 텍스트로 작동한다.
+즉, 스프링이 저 텍스트를 치환한다.
+서버 없이 작동할때만 사용하는 것임.
+-->
+</body>
+</html>
