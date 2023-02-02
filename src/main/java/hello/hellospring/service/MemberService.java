@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service //스프링이 인식해서 이 클래스를 스프링 컨테이너에 등록해준다
+//@Service //스프링이 인식해서 이 클래스를 스프링 컨테이너에 등록해준다
 public class MemberService {
     //DI 이전
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
