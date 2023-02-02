@@ -9,7 +9,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MemberServiceTest {
-    MemberService memberService = new MemberService();
+    MemberService memberService;
     MemoryMemberRepository memberRepository = new MemoryMemberRepository();
     // 지금 이 형태는 MemberService의 MemoryMemberRepository와 다르다. 테스트 java 파일과 MemberService 파일의 객체가 다르기 때문, 이 부분은 DI로 해결해야 합니다.
 
