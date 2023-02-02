@@ -19,6 +19,7 @@ class MemberServiceTest {
         memberService = new MemberService(memberRepository);
         //memberRepository를 service에 외부에서 넣어준다.
         // Q. test코드는 실행시 포함이 안된다고 했는데 그럼 실제 구동시 repository는 누가 넣어주는 걸까?
+        // ->> repository같이 의존관계에 있는 친구들은 dependency Injection으로 삽입한다.
     }
 
     @AfterEach
