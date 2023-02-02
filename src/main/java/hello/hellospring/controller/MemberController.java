@@ -1,8 +1,11 @@
 package hello.hellospring.controller;
 
+import hello.hellospring.domain.Member;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MemberController {
@@ -20,6 +23,19 @@ public class MemberController {
 //    }
 
 //    @Autowired private  MemberService memberService; -> DI 필드 주입 방식 ; 선호하지 않음. Reason >> 픽스되기 때문에 굳이 쓰진 않음
+
+    @GetMapping("/members/new")
+    public String createForm() {
+        return "members/createMemberForm";
+    }
+    @PostMapping("/members/new") //data를 form같은곳에 넣고 넘길때 쓰는 어노테이션
+    public String create(MemberForm form) {//MemberFrom.java 코드의 name값으로 들어옴.
+//        name은 어떻게 찾지? -> input태그의 name요소를 보고 찾아냄값
+        Member member = new Member();
+        member.setName(form.getName());
+        memberService.join(member);
+        return "redirect:/";
+    }
 }
 //이 상태면 Spring 프로젝트가 실행 될떄
 //Spring container 에 Controller 어노테이션이 붙은 class 들은 객체가 자동 생성된다.
