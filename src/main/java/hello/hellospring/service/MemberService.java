@@ -7,8 +7,16 @@ import hello.hellospring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //DI 이전
+    //private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //DI 이후 코드
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /*
      * 회원가입
@@ -31,8 +39,8 @@ public class MemberService {
     }
 
     /*
-    * 전체 회원조희
-    * */
+     * 전체 회원조희
+     * */
     public List<Member> findMembers(){
         return memberRepository.findAll();
     }
@@ -41,3 +49,4 @@ public class MemberService {
         return memberRepository.findById(memberId);
     }
 }
+
